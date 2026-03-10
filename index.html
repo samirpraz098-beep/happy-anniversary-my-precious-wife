@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 2nd Anniversary!</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #ffe6f2, #fff0f5);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    color: #e75480;
+    margin: 80px 20px 20px;
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin: 15px 20px;
+    line-height: 1.5em;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .btn {
+    display: inline-block;
+    margin: 30px 0;
+    padding: 15px 30px;
+    background-color: #e75480;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .btn:hover { background-color: #d63c6a; transform: scale(1.05); }
+
+  /* Animations */
+  @keyframes fadeInDown { 0% { opacity:0; transform:translateY(-50px);} 100% { opacity:1; transform:translateY(0);} }
+  @keyframes fadeIn { 0% { opacity:0;} 100% { opacity:1;} }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e75480;
+    transform: rotate(45deg);
+    animation: floatUp 6s linear infinite;
+  }
+  .heart:before, .heart:after {
+    content:'';
+    position:absolute;
+    width:20px; height:20px;
+    background-color:#e75480;
+    border-radius:50%;
+  }
+  .heart:before { top:-10px; left:0; }
+  .heart:after { left:-10px; top:0; }
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(45deg); opacity:1; }
+    100% { transform: translateY(-800px) rotate(45deg); opacity:0; }
+  }
+
+</style>
+</head>
+<body>
+
+<h1>Happy 2nd Anniversary, My Love! 💖</h1>
+<p>Two years full of laughter, love, and adventures together! You make life beautiful.</p>
+<p>Here’s to creating more memories, side by side, forever ❤️</p>
+<a href="gallery.html" class="btn">See Our Memories 📸</a>
+
+<script>
+  const colors = ['#e75480','#ff6fa3','#ffb6c1','#ffc0cb'];
+  for(let i=0;i<30;i++){
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.animationDuration=4+Math.random()*3+'s';
+    heart.style.width=15+Math.random()*25+'px';
+    heart.style.height=heart.style.width;
+    heart.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+    heart.style.top=(50+Math.random()*100)+'vh';
+    document.body.appendChild(heart);
+  }
+</script>
+
+</body>
+</html>
